@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="D:/WORK/Backend/C#/JinjiKanri/JinjiKanri.Base/JinjiKanri.Base.csproj" />
+  <Project Path="D:/WORK/Backend/C#/JinjiKanri/JinjiKanri.Common/JinjiKanri.Common.csproj" />
+  <Project Path="D:/WORK/Backend/C#/JinjiKanri/JinjiKanri.Domain/JinjiKanri.Domain.csproj" />
+  <Project Path="D:/WORK/Backend/C#/JinjiKanri/JinjiKanri.Entity/JinjiKanri.Entity.csproj" />
+  <Project Path="D:/WORK/Backend/C#/JinjiKanri/JinjiKanri.WebAPI/JinjiKanri.WebAPI.csproj" />
+</Solution>
