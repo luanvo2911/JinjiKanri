@@ -1,17 +1,19 @@
-var builder = WebApplication.CreateBuilder(args);
+using JinjiKanri.WebAPI.DependencyInjection;
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+var builder = new DependencyInjection().InitBuilder(args);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.MapOpenApi(); // This creates /openapi/v1.json
+
+    app.UseSwaggerUI(options =>
+    {
+        // The name 'v1' here must match the default document name
+        options.SwaggerEndpoint("/openapi/v1.json", "My API v1");
+    });
 }
 
 app.UseHttpsRedirection();
