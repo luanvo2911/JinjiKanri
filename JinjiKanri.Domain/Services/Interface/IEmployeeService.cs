@@ -7,6 +7,18 @@ namespace JinjiKanri.Domain.Services.Interface
 {
     public interface IEmployeeService
     {
-        public List<Employee?> GetEmployees();
+        List<Employee?> GetEmployees();
+
+        Employee? GetEmployee(long id);
+
+        void InsertEmployee(Employee employee);
+
+        void UpdateEmployee(Employee employee, long id);
+
+        void DeleteEmployee(long id);
+
+        
+
+
     }
 }

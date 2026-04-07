@@ -21,9 +21,48 @@ namespace JinjiKanri.Base.Implementation
         {
             return await _dbSet.ToListAsync();
         }
-        public async Task<T?> GetById(string id)
+        public async Task<T?> GetById(long id)
         {
             return await _dbSet.FindAsync(id);
+        }
+
+        public async Task InsertAsync(T entity)
+        {
+            if(entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+            else
+            {
+                await _dbSet.AddAsync(entity);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdateAsync(T existingEntity, T updatedEntity)
+        {
+            if (existingEntity == null) 
+            {
+                throw new ArgumentNullException(nameof(existingEntity));
+            }
+            if (updatedEntity == null)
+            {
+                throw new ArgumentNullException(nameof(updatedEntity));
+            }
+
+            _dbContext.Entry(existingEntity).CurrentValues.SetValues(updatedEntity);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(T entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity));
+            }
+
+            _dbSet.Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
