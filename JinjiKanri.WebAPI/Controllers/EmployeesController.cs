@@ -4,6 +4,7 @@ using JinjiKanri.WebAPI.Model;
 using JinjiKanri.Entity.Entities;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JinjiKanri.WebAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace JinjiKanri.WebAPI.Controllers
             //_logger = logger;
         }
 
+        [Authorize]
         [HttpGet("employees")]
         public IActionResult GetEmployees()
         {
@@ -30,6 +32,7 @@ namespace JinjiKanri.WebAPI.Controllers
             return Ok(employees);
         }
 
+        [Authorize]
         [HttpGet("employee")]
         public IActionResult GetEmployee([FromQuery] long id)
         {
@@ -38,6 +41,7 @@ namespace JinjiKanri.WebAPI.Controllers
             return Ok(employee);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Insert([FromBody]Employee? employee)
         {
@@ -54,6 +58,7 @@ namespace JinjiKanri.WebAPI.Controllers
             
         }
 
+        [Authorize]
         [HttpPut]
         public IActionResult Update([FromBody] Employee? employee)
         {
@@ -69,6 +74,7 @@ namespace JinjiKanri.WebAPI.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete]
         public IActionResult Delete([FromQuery]long id)
         {

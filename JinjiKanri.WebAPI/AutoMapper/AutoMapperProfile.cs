@@ -10,6 +10,7 @@ namespace JinjiKanri.WebAPI.AutoMapper
             CreateMap<Employee, EmployeeModel>().ForMember(
                 dest => dest.fullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}")
             );
+            CreateMap<Vlogin, LoginModel>().ReverseMap();
         }
     }
 }

@@ -21,6 +21,7 @@ namespace JinjiKanri.Base.Implementation
         {
             return await _dbSet.ToListAsync();
         }
+
         public async Task<T?> GetById(long id)
         {
             return await _dbSet.FindAsync(id);
@@ -63,6 +64,17 @@ namespace JinjiKanri.Base.Implementation
 
             _dbSet.Remove(entity);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IBaseRepository<T>> Where(Func<T, bool> predicate)
+        {
+            _dbSet.Where(predicate);
+            return this;
+        }
+
+        public async Task<IEnumerable<T>> Limit(int limit)
+        {
+            return await _dbSet.Take(limit).ToListAsync();
         }
     }
 }

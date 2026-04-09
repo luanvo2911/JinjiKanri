@@ -8,7 +8,7 @@ namespace JinjiKanri.WebAPI.Model
         public string fullName { get; set; }
         public string department { get; set; }
         public string position { get; set; }
-        public DateOnly hire_date {  get; set; }
+        public DateOnly hireDate {  get; set; }
         public string salary { get; set; }
         public string status { get; set; }
     }

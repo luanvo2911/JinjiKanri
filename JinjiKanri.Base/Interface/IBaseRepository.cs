@@ -7,6 +7,7 @@ namespace JinjiKanri.Base.Interface
     public interface IBaseRepository<T> where T : class
     {
         Task<IEnumerable<T?>> GetAll();
+
         Task<T?> GetById(long id);
 
         Task InsertAsync(T entity);
@@ -14,6 +15,10 @@ namespace JinjiKanri.Base.Interface
         Task UpdateAsync(T existingEntity, T updatedEntity);
 
         Task DeleteAsync(T entity);
+
+        Task<IBaseRepository<T>> Where(Func<T, bool> predicate);
+
+        Task<IEnumerable<T>> Limit(int limit);
 
     }
 }
