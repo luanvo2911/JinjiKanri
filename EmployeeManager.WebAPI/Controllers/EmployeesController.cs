@@ -38,7 +38,7 @@ namespace EmployeeManager.WebAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while getting all employees");
-                return BadRequest(ex.Message);
+                return BadRequest(ex.StackTrace + "\n" + ex.Message);
             }
         }
 
@@ -53,7 +53,7 @@ namespace EmployeeManager.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.StackTrace + "\n" + ex.Message);
             }
         }
 
@@ -75,7 +75,7 @@ namespace EmployeeManager.WebAPI.Controllers
                 }
             }
             catch (Exception ex) { 
-                return BadRequest(ex.Message);
+                return BadRequest(ex.StackTrace + "\n" + ex.Message);
             }
             
         }
@@ -99,7 +99,7 @@ namespace EmployeeManager.WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.StackTrace + "\n" + ex.Message);
             }
 
         }
@@ -114,7 +114,7 @@ namespace EmployeeManager.WebAPI.Controllers
                 return Ok(string.Format(Message.RES0003, id));
             }
             catch (Exception ex) { 
-                return BadRequest(ex.Message);
+                return BadRequest(ex.StackTrace + "\n" + ex.Message);
             }
         }
 

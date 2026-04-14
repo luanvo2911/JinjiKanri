@@ -40,10 +40,14 @@ namespace EmployeeManager.WebAPI.DependencyInjection
             // Register the Generic Base Repository
             builder.Services.AddScoped(typeof(IEmployeeRepository), typeof(EmployeeRepository));
             builder.Services.AddScoped(typeof(IVLoginRepository), typeof(VLoginRepository));
+            builder.Services.AddScoped(typeof(IPayrollRepository), typeof(PayrollRepository));
+            builder.Services.AddScoped(typeof(ILeaveRequestRepository), typeof(LeaveRequestRepository));
 
             // Register Specific Domain Services
             builder.Services.AddScoped(typeof(IEmployeeService), typeof(EmployeeService));
             builder.Services.AddScoped(typeof(IVLoginService), typeof(VLoginService));
+            builder.Services.AddScoped(typeof(IPayrollService), typeof(PayrollService));
+            builder.Services.AddScoped(typeof(ILeaveRequestService), typeof(LeaveRequestService));
 
             // Register Mapper
             builder.Services.AddAutoMapper(cfg =>

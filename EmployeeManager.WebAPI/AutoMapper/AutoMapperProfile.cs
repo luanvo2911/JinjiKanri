@@ -11,6 +11,7 @@ namespace EmployeeManager.WebAPI.AutoMapper
                 dest => dest.fullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}")
             );
             CreateMap<Vlogin, LoginModel>().ReverseMap();
+            CreateMap<LeaveRequest, LeaveRequestModel>().ReverseMap();
         }
     }
 }
