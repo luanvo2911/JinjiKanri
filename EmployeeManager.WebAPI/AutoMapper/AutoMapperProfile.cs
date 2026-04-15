@@ -12,6 +12,7 @@ namespace EmployeeManager.WebAPI.AutoMapper
             );
             CreateMap<Vlogin, LoginModel>().ReverseMap();
             CreateMap<LeaveRequest, LeaveRequestModel>().ReverseMap();
+            CreateMap<Payroll, PayrollModel>().ReverseMap();
         }
     }
 }
