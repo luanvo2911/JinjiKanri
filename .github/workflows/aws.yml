@@ -67,7 +67,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: TaskDefinition.json # You need this file in your repo
+          task-definition: task-definition.json # You need this file in your repo
           container-name: web-api # Or your WebAPI container name
           image: ${{ steps.build-image.outputs.image }}
 
